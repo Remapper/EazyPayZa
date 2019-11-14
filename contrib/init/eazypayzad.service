@@ -1,0 +1,26 @@
+[Unit]
+Description=EazyPayZA's distributed currency daemon
+After=network.target
+
+[Service]
+User=eazypayza
+Group=eazypayza
+
+Type=forking
+PIDFile=/var/lib/eazypayzad/eazypayzad.pid
+
+ExecStart=/usr/bin/eazypayzad -daemon -pid=/var/lib/eazypayzad/eazypayzad.pid \
+          -conf=/etc/eazypayza/eazypayza.conf -datadir=/var/lib/eazypayzad
+
+ExecStop=-/usr/bin/eazypayza-cli -conf=/etc/eazypayza/eazypayza.conf \
+         -datadir=/var/lib/eazypayzad stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

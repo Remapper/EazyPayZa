@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=EazyPayZA
+Comment=EazyPayZA P2P Cryptocurrency
+Exec=eazypayza-qt %u
+Terminal=false
+Type=Application
+Icon=eazypayza128
+MimeType=x-scheme-handler/eazypayza;
+Categories=Office;Finance;
+Name[en_US]=eazypayza-qt.desktop
